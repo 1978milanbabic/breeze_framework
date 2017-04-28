@@ -4,30 +4,51 @@
         <title>Framework setup</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="text/javascript" src="js/jquery/jquery-2.2.4.min.js"></script>
-        <script type="text/javascript" src="js/custom.js"></script>
+        <!-- css -->
+        <link type="text/css" href="css/breeze.1.0.css" rel="stylesheet">
         <link type="text/css" href="css/styles.css" rel="stylesheet">
+        <!-- js -->
+        <script type="text/javascript" src="js/jquery/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="js/breeze.1.0.js"></script>
+        <script type="text/javascript" src="js/custom.js"></script>
+        
     </head>
     <body>
         
-        <div class="container">
-            
-            <p>First paragraph</p>
-            <p>Second paragraph</p>
-            <p>Third paragraph</p>
-            <p>Forth paragraph</p>
-            <p>Fifth paragraph</p>
-            <p>Sixth paragraph</p>
-            <p>Seventh paragraph</p>
-            <p>Eight paragraph</p>
-            <p>Ninth paragraph</p>
-            <p>Tenth paragraph</p>
-            <p>Eleventh paragraph</p>
-            <p>Dvanaesti paragraph</p>
-            <p>Trinaesti paragraph</p>
-            <p>Cetrnesti paragraph</p>
-            
+        
+        <div class="container_outer">
+            <div class="container_middle">
+                <div class="container_inner">
+                    <div id="zemska"></div>
+                </div>
+            </div>
         </div>
         
+        
+        
+        
+        <script>
+            var pngsprite = {
+                big: "./img/pngs_big.png",
+                size_big: "642px 662px",
+                meddium: "./img/pngs_big.png",
+                size_meddium: "400px 412px",
+                small: "./img/pngs_big.png",
+                size_small: "200px 206px"
+            };
+            $("#zemska").breeze(
+                pngsprite,
+                {
+                    s_posX: "0px",
+                    s_posY: "298px",
+                    s_width: "210px",                   //odnosi se samo na BIG!!!!
+                    s_height: "300px",
+                    width: "214px",
+                    height: "300px",
+                    type: "pic",                         //piclink picklink_expand picklink_expand_prop
+                    expand: ""
+                }
+            );
+        </script>
     </body>
 </html>

@@ -17,3 +17,16 @@
         Author      : MILAN BABIC - https://www.linkedin.com/in/milanbabic1978/
 */
 
+#breeze_connector{
+    width: 3px;
+    height: 0;
+}
+@media screen and(max-width:736px){
+    #breeze_connector{
+        width: 2px;
+    }
+}
+
+.breeze{
+    background-repeat: no-repeat;
+}
