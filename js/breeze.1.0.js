@@ -17,22 +17,17 @@
         Author      : MILAN BABIC - https://www.linkedin.com/in/milanbabic1978/
 */
 
-//INIT!!!!!
-//$("body").load (function () {
+//INIT!!!!!         CSS_TO_JS_CONNECTOR!!!!!
+
 jQuery(document).ready(function () {
-    jQuery("body").append('<div id="breeze_connector"></div>');
+    jQuery("body").append('<div id="css_to_js_connector"></div>');
 });
     
-//});
+
 
 //********************* global variables
 //
-////big,meddium,small pics URLs *********************** EXAMPLE!!! *****************
-//var breeze_picsURLs = {
-//    big: "#333",
-//    meddium: "green",
-//    small: "blue"
-//    };                    
+                
             
 
 
@@ -41,57 +36,66 @@ jQuery(document).ready(function () {
     
         
     //FRAMEWORK INVOKE FUNCTION
-    $.fn.breeze = function(location,action){            //pics URL poziva samo na location
+    $.fn.insert_image = function(sort,location,action){            //pics URL poziva samo na location
         
-//        $(window).on("load",function(){
-            
-            // initiating pictures
+        var types = $.extend({
+            type: "pic",                                    //pic, pic_expand
+            link: false,
+            target_blank: false
+        },sort);
+        
+        // initiating pictures
 
-            var connector="0";
-            var newlocation = "";
-            var locw = location;
-            
-            function connectora(){
-                var bw = parseInt($("#breeze_connector").width());
-                if (bw!=3 && bw!=2 && bw!=1){
-                    setTimeout(function () {
-                        connectora();
-                    }, 20);
-                }else{
-                    connector = bw;
-                    switchcon(connector);
-                }
-            };       
+        var connector="0";
+        var newlocation = "";
+        var locw = location;
 
-
-
-
-            var Object = $.extend({                         // pozivam na {col : "nova vrednost"} - "red" je samo default!!!!
-                s_posX: "0",
-                s_posY: "0",
-                s_width: "",
-                s_height: "",
-                width: "100%",
-                height: "100%",
-                type: "pic",
-                expand: "0"
-            },action);
-
-
-
-            //return values
-            
-            function switchcon(connector){
-                if(connector=="3"){
-                    newlocation = locw.big;
-                }
-                if(connector=="2"){
-                    newlocation = locw.meddium;
-                }
-                if(connector=="1"){
-                    newlocation = locw.small;
-                } 
+        function connectora(){
+            var bw = parseInt($("#css_to_js_connector").width());
+            if (bw!=3 && bw!=2 && bw!=1){
+                setTimeout(function () {
+                    connectora();
+                }, 20);
+            }else{
+                connector = bw;
+                switchcon(connector);
             }
+        };       
+
+
+
+
+        var Object = $.extend({              
+            s_posX: "0",
+            s_posY: "0",
+            s_width: "",
+            s_height: "",
+            width: "100%",
+            height: "100%",
+            expandX: "0",
+            expandY: "0",
+            cut_expand: false
+        },action);
+
+
+
+        //return values
+
+        function switchcon(connector){
+            if(connector=="3"){
+                newlocation = locw.big;
+            }
+            if(connector=="2"){
+                newlocation = locw.meddium;
+            }
+            if(connector=="1"){
+                newlocation = locw.small;
+            } 
+        }
+            
+        if(types && types.type === "pic"){                    //********************** TYPE PICTURE!!!!!
+            
+            
             
             
             return this.each(function () {
@@ -101,7 +105,6 @@ jQuery(document).ready(function () {
                 if(location){
                     if (newlocation==""){
                         connectora();
-                    }else{
                     }
                 }
                 
@@ -109,6 +112,7 @@ jQuery(document).ready(function () {
                 if(Object){
                     var thiss = $(this);
                     check_conn();
+                    
                     function dopic(){
                         thiss.append("<div class='breeze'></div>");
                         thiss.find(".breeze").css({
@@ -134,22 +138,13 @@ jQuery(document).ready(function () {
                     
                 }
                  
-                 
-                
-                
-                
-                
+            },console.log("Image inserted!"));
 
-
-
-            },console.log("Breeze finished!"));
-
-                //$(window).on("load",function(){});
-
-
-
-//        });
+        } //end if pic
         
-    };
+        
+        
+        
+    };  // end of $.fn.breeze
     
 }(jQuery));

@@ -19,7 +19,7 @@
         <div class="container_outer">
             <div class="container_middle">
                 <div class="container_inner">
-                    <div id="zemska"></div>
+                    <div class="zemska"></div>
                 </div>
             </div>
         </div>
@@ -28,27 +28,34 @@
         
         
         <script>
-            var pngsprite = {
-                big: "./img/pngs_big.png",
-                size_big: "642px 662px",
-                meddium: "./img/pngs_big.png",
-                size_meddium: "400px 412px",
-                small: "./img/pngs_big.png",
-                size_small: "200px 206px"
-            };
-            $("#zemska").breeze(
-                pngsprite,
-                {
+            (function($){
+                
+                var pngsprite = {
+                    big: "./img/pngs_big.png",
+                    size_big: "642px 662px",
+                    meddium: "./img/pngs_big.png",
+                    size_meddium: "400px 412px",
+                    small: "./img/pngs_big.png",
+                    size_small: "200px 206px"
+                };
+                var zemska = {
                     s_posX: "0px",
                     s_posY: "298px",
                     s_width: "210px",                   //odnosi se samo na BIG!!!!
                     s_height: "300px",
                     width: "214px",
                     height: "300px",
-                    type: "pic",                         //piclink picklink_expand picklink_expand_prop
                     expand: ""
-                }
-            );
+                };
+
+                $(".zemska").insert_image(
+                        {type: "pic"},
+                        pngsprite,
+                        zemska
+                    );
+                    
+                
+            })(jQuery);
         </script>
     </body>
 </html>

@@ -17,13 +17,20 @@
         Author      : MILAN BABIC - https://www.linkedin.com/in/milanbabic1978/
 */
 
-#breeze_connector{
+#css_to_js_connector{
     width: 3px;
     height: 0;
 }
-@media screen and(max-width:736px){
-    #breeze_connector{
+
+@media screen and(max-width:735px){
+    #css_to_js_connector{
         width: 2px;
+    }
+}
+
+@media screen and(max-width:540px){
+    #css_to_js_connector{
+        width: 1px;
     }
 }
 
