@@ -28,34 +28,71 @@
         
         
         <script>
-            (function($){
+            jQuery(document).ready (function($){
+
                 
                 var pngsprite = {
                     big: "./img/pngs_big.png",
-                    size_big: "642px 662px",
-                    meddium: "./img/pngs_big.png",
-                    size_meddium: "400px 412px",
-                    small: "./img/pngs_big.png",
-                    size_small: "200px 206px"
+                    size_big_width: "642px",
+                    size_big_height: "662px",
+                    
+                    meddium: "./img/pngs_medd.png",
+                    size_meddium_width: "400px",
+                    size_meddium_height: "412px",
+                    
+                    small: "./img/pngs_small.png",
+                    size_small_width: "200px",
+                    size_small_height: "206px"
                 };
                 var zemska = {
-                    s_posX: "0px",
-                    s_posY: "298px",
-                    s_width: "210px",                   //odnosi se samo na BIG!!!!
-                    s_height: "300px",
-                    width: "214px",
-                    height: "300px",
-                    expand: ""
+                                        //odnosi se na big
+                    sprite_posX: "0px",
+                    sprite_posY: "298px",
+
+                    sprite_width: "210px",
+                    sprite_height: "300px",
+
+                                        //sirina i visina samog elementa
+                    big_width: "100%",
+                    big_height: "auto",
+
+                    meddium_width: "auto",
+                    meddium_height: "100%",
+
+                    small_width: "100%",
+                    small_height: "auto",
+
+                                        //samo za pic_expand
+                    expand: "1.2",
+                    transition: "transform 0.2s ease-in-out",
+                    cut_expand: false,
+
+                                        //media uslovi
+                    connector_10: "big",
+                    connector_9: "big",
+                    connector_8: "big",
+                    connector_7: "big",
+                    connector_6: "big",
+                    connector_5: "big",
+                    connector_4: "big",
+                    connector_3: "big",
+                    connector_2: "big",
+                    connector_1: "meddium"
                 };
 
                 $(".zemska").insert_image(
-                        {type: "pic"},
-                        pngsprite,
-                        zemska
-                    );
-                    
-                
-            })(jQuery);
+                    {
+                        type: "pic_expand",
+                        link: true,
+                        url: "http://facebook.com",
+                        target_blank: true
+                    },
+                    pngsprite,
+                    zemska
+                );
+
+
+            });
         </script>
     </body>
 </html>

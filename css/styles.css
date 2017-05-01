@@ -61,12 +61,15 @@ p{
     margin: 0 auto;
 }
 
-#zemska{
-    width: 100%;
-    height: 300px
+.zemska{
+    width: 100px;
+    height: 300px;
+    margin: 0 auto;
 }
 
-
+.zemska .respPicContainer{
+    margin: 0 auto;
+}
 
 
 
